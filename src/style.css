@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Michroma&family=Poppins:wght@400;500;600;700&display=swap');
 
 @font-face {
   font-family: 'Ethnocentric';
@@ -16,11 +16,11 @@
   --brand: #65d15b;
   --brand-dark: #57c24d;
   --button-light: #ffffff;
-  --content-width: 68.75rem;
-  --button-width: 17.25rem;
-  --button-height: 3.5rem;
-  --button-radius: 0.5rem;
-  --stripe-width: 1.71875rem;
+  --content-width: 71rem;
+  --button-width: 19rem;
+  --button-height: 3.75rem;
+  --accent-edge-width: 2.125rem;
+  --button-slant: 1.9rem;
   --transition: 180ms ease;
 
   color: var(--text);
@@ -168,14 +168,19 @@ a {
   width: min(100%, var(--button-width));
   min-width: var(--button-width);
   height: var(--button-height);
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.75rem;
   border: 0;
-  border-radius: var(--button-radius);
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   overflow: hidden;
+  clip-path: polygon(
+    var(--button-slant) 0,
+    100% 0,
+    calc(100% - var(--button-slant)) 100%,
+    0 100%
+  );
   transition:
     transform var(--transition),
     background-color var(--transition),
@@ -187,7 +192,12 @@ a {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0;
-  border-radius: var(--button-radius) 0 0 var(--button-radius);
+  clip-path: polygon(
+    calc(var(--accent-edge-width) * 0.55) 0,
+    100% 0,
+    calc(100% - (var(--accent-edge-width) * 0.55)) 100%,
+    0 100%
+  );
 }
 
 .button__label {
@@ -198,7 +208,7 @@ a {
 
 .button--accent {
   background: var(--brand);
-  color: var(--text-strong);
+  color: var(--text);
 }
 
 .button--light {
@@ -207,13 +217,12 @@ a {
 }
 
 .button--stripe::before {
-  width: var(--stripe-width);
+  width: var(--accent-edge-width);
   background: var(--brand);
 }
 
 .button--stripe-muted::before {
-  width: var(--stripe-width);
-  background: rgba(31, 31, 49, 0.1);
+  width: 0;
 }
 
 .button:hover,
@@ -265,12 +274,17 @@ a {
 .hero__title {
   margin: 0;
   color: var(--text);
-  font-family: 'Ethnocentric', 'Michroma', sans-serif;
-  font-size: 3.75rem;
-  line-height: 3.25rem;
+  font-family: 'Ethnocentric', 'Audiowide', 'Michroma', sans-serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.9;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  text-shadow:
+    0 0.0625rem 0 rgba(87, 67, 75, 0.9),
+    0 0.125rem 0 rgba(87, 67, 75, 0.7),
+    0 0.5rem 1rem rgba(0, 0, 0, 0.24);
+  -webkit-text-stroke: 0.0625rem rgba(103, 82, 91, 0.35);
 }
 
 .hero__copy {
@@ -332,8 +346,8 @@ a {
   }
 
   .hero__title {
-    font-size: clamp(2.75rem, 6vw, 3.5rem);
-    line-height: 0.95;
+    font-size: clamp(2.7rem, 6vw, 4.6rem);
+    line-height: 0.92;
   }
 }
 
@@ -359,8 +373,8 @@ a {
   }
 
   .hero__title {
-    font-size: clamp(2.1rem, 9vw, 3rem);
-    line-height: 1;
+    font-size: clamp(2.15rem, 9vw, 3.4rem);
+    line-height: 0.96;
   }
 
   .hero__copy {
