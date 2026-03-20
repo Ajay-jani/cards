@@ -2,27 +2,24 @@ const FIGMA_ASSETS = {
   background:
     'https://www.figma.com/api/mcp/asset/02fe5f3f-550f-49c7-891c-fa5e5c0f00ec',
   logo: 'https://www.figma.com/api/mcp/asset/15b71593-dc89-4284-80d7-1b25f4069714',
+  chevron:
+    'https://www.figma.com/api/mcp/asset/db321208-3be8-4b76-8a0f-87b0ad40c5f1',
 }
 
 const NAV_ITEMS = ['What We Do', 'Who We Are']
-
-function createChevron() {
-  return `
-    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-      <path
-        d="M5.589 7.244a.833.833 0 0 1 1.178 0L10 10.476l3.232-3.232a.833.833 0 1 1 1.178 1.178l-3.821 3.82a.833.833 0 0 1-1.178 0L5.589 8.422a.833.833 0 0 1 0-1.178Z"
-        fill="currentColor"
-      />
-    </svg>
-  `
-}
 
 function createNavButtons() {
   return NAV_ITEMS.map(
     (item) => `
       <button class="nav-link" type="button">
         <span>${item}</span>
-        <span class="nav-link__chevron">${createChevron()}</span>
+        <img
+          class="nav-link__chevron"
+          src="${FIGMA_ASSETS.chevron}"
+          alt=""
+          aria-hidden="true"
+          decoding="async"
+        />
       </button>
     `,
   ).join('')
@@ -57,10 +54,6 @@ export function createLandingHero() {
             loading="eager"
             decoding="async"
           />
-          <span class="site-brand__copy">
-            <span class="site-brand__title">Landmark</span>
-            <span class="site-brand__subtitle">Global Ventures</span>
-          </span>
         </a>
 
         <nav class="site-nav" aria-label="Primary navigation">
