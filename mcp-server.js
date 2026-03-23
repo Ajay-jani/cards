@@ -7,7 +7,7 @@ import * as z from "zod/v4";
 
 // NOTE: This project currently stores the key directly in code.
 // Prefer moving it to an env var in production.
-const API_KEY = "AIzaSyDS4MSUVQMT6EQiUz4tOoLBUIYZY6DNyik";
+const API_KEY = "fsdfsdf";
 
 const DEFAULT_MODEL = "gemini-pro";
 const OUTPUT_DIR = path.join(process.cwd(), "assets/icons/crops");
